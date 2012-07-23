@@ -1,0 +1,8 @@
+importFrom(stats, heatmap)
+import(pls)
+export(fitModel, svpls, hfp)
+S3method(print, fitModel)
+S3method(print, svpls)
+S3method(summary, fitModel)
+S3method(summary, svpls)
+

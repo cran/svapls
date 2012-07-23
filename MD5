@@ -1,0 +1,13 @@
+22b427be5ded6e676355ef104798d908 *DESCRIPTION
+8020920c147a56242b4276aed68b61e3 *NAMESPACE
+a5074d94ccf8cce03a5bc531f91999d0 *R/fitModel.R
+43fe41ebb6f2b5302809d25d3a4a5dff *R/hfp.R
+8beb2a0dc9346babd370127d7664ef09 *R/svpls.R
+ba13a5b0ce37b9c5b4e3445f6d41d508 *data/batch.dat.rda
+531531b6d7d614fbfa6400aaa7f5bbee *data/hidden_fac.dat.rda
+9856fb023050eadb7ba73ba949fab63f *man/batch.dat.Rd
+8372275fad517d8ccfb853d40586b3a7 *man/fitModel.Rd
+89a702f4be4052f9c71f79644c669835 *man/hfp.Rd
+10e23268e511aba52e7436aeaa27de04 *man/hidden_fac.dat.Rd
+3b4f5961141ed460346da7ba6936912b *man/svapls-package.Rd
+90515ea4941d1a54b1c0fefbdece08c0 *man/svpls.Rd
