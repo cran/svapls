@@ -1,7 +1,5 @@
 \name{svpls}
 \alias{svpls}
-\alias{summary.svpls}
-\alias{print.svpls}
 \title{
 Function for identfying the optimal ANCOVA model and detecting the genes
 that are truly differentially expressed between the two types of samples.
@@ -42,9 +40,6 @@ svpls(k1, k2, Y, pmax = 3, fdr = 0.05)
 }
 
 \value{
-\code{svpls} returns an object of \code{\link{class}} "\code{svpls}". 
-The object contains a list of the following components:
-
   \item{opt.model }{The optimal model. 1 denotes the standard ANOVA model.}
   \item{PLS.imp }{PlS imputed estimate of the hidden expression heterogeneity,
 evaluated from the optimal model (applicable only when \code{opt.model}>1).}
@@ -57,11 +52,12 @@ with effects estimated from the optimal model.}
   \item{AIC.opt}{AIC value for the optimal model.}
 }
 \references{
-Hirotsugu, A. (1980) Likelihood and the Bayes Procedure. The Institute of
-Statistical Mathematics, Tokyo., Benjamini, Y and Hochberg, Y (1995) Controlling
-the false discovery rate : a practical and powerful approach to multiple testing.
-Journal of the Royal Statistical Society. 
+Hirotsugu, A. (1980) Likelihood and the Bayes Procedure. Bayesian Statistics, 143-146.
+
+Benjamini, Y and Hochberg, Y (1995) Controlling
+the false discovery rate : a practical and powerful approach to multiple testing. Journal of the Royal Statistical Society, 57(1): 289-300. 
 }
+
 \author{
   Sutirtha Chakraborty, Somnath Datta and Susmita Datta.
 }
@@ -70,11 +66,11 @@ Journal of the Royal Statistical Society.
  \code{\link{fitModel}}, \code{\link{hfp}}
 }
 \examples{
-## Loading the first dataset
-data(batch.dat)
+## Loading the dataset
+data(hidden_fac.dat)
 
 ## Fitting the optimal ANCOVA model to the data gives:
-fit <- svpls(10,10,batch.dat,pmax = 5)
+fit <- svpls(10,10,hidden_fac.dat,pmax = 5)
 
 ## The optimal ANCOVA model, its AIC value and the positive genes detected from it are given by:
 fit$opt.model 
@@ -85,6 +81,7 @@ fit$genes
 
 ## The corrected gene expression matrix obtained after removing the effects of the hidden variability is given by:
 Y.corrected <- fit$Y.corr
+
 }
 
 \keyword{classes}

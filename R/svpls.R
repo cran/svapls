@@ -1,5 +1,4 @@
-svpls <-
-function(k1,k2,Y,pmax=3,fdr=0.05){
+svpls <- function(k1,k2,Y,pmax=3,fdr=0.05){
    G <- nrow(Y)
    k <- k1 + k2
    n <- G*k
@@ -12,14 +11,14 @@ function(k1,k2,Y,pmax=3,fdr=0.05){
    opt_model <- which(model_aic == min(model_aic))
 
 if(opt_model == 1){
-beta_hat <- NULL
-Y.corr <- PLS.imp <- matrix(0,500,20)
-gv_diff <- (1+k1/k2)*model_res[[1]][[4]][,1]
-mse <- model_res[[1]][[5]]
-aic.opt <- model_res[[1]][[6]]
-t <- pval.opt <- rep(0,G)
-for (i in 1:G){
- t[i] <- gv_diff[i]/sqrt((1-1/G)*(1/k1 + 1/k2)*mse)
+	beta_hat <- NULL
+	PLS.imp <- matrix(0,G,k)
+	gv_diff <- (1+k1/k2)*model_res[[1]][[4]][,1]
+	mse <- model_res[[1]][[5]]
+	aic.opt <- model_res[[1]][[6]]
+	t <- pval.opt <- rep(0,G)
+	for (i in 1:G){
+ 		t[i] <- gv_diff[i]/sqrt((1-1/G)*(1/k1 + 1/k2)*mse)
             pval.opt[i] <- 2*(1 - pt(abs(t[i]),n-2*G))            
       } 
       p.opt <- sort(pval.opt)
@@ -52,7 +51,7 @@ if (opt_model != 1){
     surr <- rep(0,k)
     for (l in 1:(opt_model-1)) surr <- surr + beta_hat[l]*sc[,l]
     for (i in 1:G) R[i,] <- surr   
- 
+	 
     GZ.Z <- outer(est_gz1,sc[,1],function(u,v) u*v)
 
     for (i in 1:G){
@@ -65,7 +64,7 @@ if (opt_model != 1){
     t <- pval.opt <- rep(0,G)
     for (i in 1:G) {
          t[i] <- gv_diff[i]/sqrt(gv.diff_var[i] * mse.opt)
-         pval.opt[i] <- 2 * (1 - pt(abs(t[i]), n*G - 3*G - pmax))
+         pval.opt[i] <- 2 * (1 - pt(abs(t[i]), n - 3*G - pmax))
     }
     p.opt <- sort(pval.opt)
     sig <- 0
@@ -83,13 +82,13 @@ if (opt_model != 1){
 
 Y.corr <- cbind(Y[,1],Y[,-1] - PLS.imp)
 
-res <- list(opt.model=opt_model, PLS.imp=PLS.imp, Y.corr=Y.corr, pvalues.adj=pval.opt, genes = sig_genes.opt, AIC.opt = aic.opt)
+res <- list(opt.model=opt_model, PLS.imp=PLS.imp, Y.corr, pvalues.adj=pval.opt, genes = sig_genes.opt, AIC.opt = aic.opt)
 class(res) <- c("svpls","list","vector")
 return(res)
 }
 
 ## new summary function S3
-summary.svpls <- function(object, ...){
+summary.svpls <- function(object){
 cat("Optimum model is \n")
 print(object$opt_model)
 cat("AIC value for the optimal model is \n")
@@ -105,7 +104,7 @@ print(object$genes)
 }
 
 ## new print function S3
-print.svpls <- function(x, ... ){
+print.svpls <- function(x){
 cat("The Optimal Model is: \n")
 print(x$opt.model)
 cat("\n")
@@ -113,8 +112,3 @@ cat("The differentially expressed genes are: \n")
 print(x$genes)
 cat("\n")
 }
-
-
-
-
-

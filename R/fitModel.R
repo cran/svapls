@@ -1,5 +1,4 @@
-fitModel <-
-function(k1,k2,Y,n.surr){
+fitModel <- function(k1,k2,Y,n.surr){
 Y <- Y[,-1]
 G <- nrow(Y)
 n <- k1 + k2
@@ -14,9 +13,9 @@ if (n.surr == 0){
 
    G.hat <- V1.hat <- GV1.hat <- rep(0,G)
    for (i in 1:G){
-      G.hat[i] <- mean(Y[i,]) - mean(Y)
-      V1.hat[i] <- mean(Y[,1:k1]) - mean(Y) 
-      GV1.hat[i] <- mean(Y[i,1:k1]) - mean(Y[,1:k1])      
+   	   G.hat[i] <- mean(Y[i,]) - mean(Y)
+   	   V1.hat[i] <- mean(Y[,1:k1]) - mean(Y) 
+   	   GV1.hat[i] <- mean(Y[i,1:k1]) - mean(Y[,1:k1])      
    }
    mu.hat <- mean(Y)
    V2.hat <- -(k1/k2)*V1.hat
@@ -171,12 +170,18 @@ if (n.surr > 0){
 if (n.surr == 0) coef <- coef1
 if (n.surr != 0) coef <- coef2
 class(coef) <- c("fitModel","list","vector")
-
 return(coef)
 }
 
 ## new summary function S3
-summary.fitModel <- function(object, ... ){
+summary.fitModel <- function(object){
+cat("mu.hat: \n", object$mu.hat, "\n")
+cat("G.hat: \n")
+print(object$G.hat) 
+cat("\n")
+cat("V.hat: \n")
+print(object$V.hat)
+cat("\n")
 cat("GV.hat: \n")
 print(object$GV.hat)
 cat("\n")
@@ -185,6 +190,15 @@ print(object$sc)
 cat("\n")
 cat("beta.hat: \n")
 print(object$beta.hat)
+cat("\n")
+cat("GZ1.hat: \n")
+print(object$GZ1.hat)
+cat("\n")
+cat("VZ1.hat: \n")
+print(object$VZ1.hat)
+cat("\n")
+cat("Vhat.GV.hat: \n")
+print(object$vhat.gvh)
 cat("\n")
 cat("MSE: \n")
 print(object$MSE)
@@ -195,9 +209,12 @@ cat("\n")
 }
 
 ## new print function S3
-print.fitModel <- function(x, ...){
+print.fitModel <- function(x){
 cat("Estimated coefficients of the surrogate variables: \n")
 print(x$beta.hat)
+cat("\n")
+cat("Estimated Gene-variety interaction effects: \n")
+print(x$GV.hat)
 cat("\n")
 cat("Estimated Mean Squared Error of the fitted model: \n")
 print(x$MSE)
@@ -206,7 +223,3 @@ cat("AIC value of the fitted model: \n")
 print(x$AIC)
 cat("\n")
 }
-
-
-
-

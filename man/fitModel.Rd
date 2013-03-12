@@ -1,7 +1,5 @@
 \name{fitModel}
 \alias{fitModel}
-\alias{summary.fitModel}
-\alias{print.fitModel}
 \title{
 Function to fit an ANCOVA model to the log transformed gene expression
 data, with a certain specified number of surrogate variables. 
@@ -38,9 +36,6 @@ fitModel(k1, k2, Y, n.surr)
 }
 }
 \value{
-\code{fitModel} returns an object of \code{\link{class}} "\code{fitModel}". The object 
-contains a list of the following components:
-
   \item{mu.hat }{Intercept (general mean effect).}
   \item{G.hat }{Main effects of the genes.}
   \item{V.hat }{Main effects of the varieties.}
@@ -57,8 +52,8 @@ contains a list of the following components:
 
 \references{
 Sutirtha Chakraborty, Somnath Datta and Susmita Datta. (2012) 
-Surrogate Variable Analysis Using Partial Least Squares in Gene 
-Expression Studies. Bioinformatics.
+Surrogate Variable Analysis Using Partial Least Squares (SVA-PLS) in Gene Expression Studies. Bioinformatics, 28(6): 799-806.
+
 Martens, H., Naes, T. (1989) Multivariate Calibration. Chicestor:Wiley.
 }
 
@@ -70,14 +65,15 @@ Sutirtha Chakraborty, Somnath Datta and Susmita Datta.
 \code{\link{svpls}}, \code{\link{hfp}}
 }
 \examples{
-data(batch.dat)
+data(hidden_fac.dat)
 
 ## Fitting an ANCOVA model with 5 surrogate variables
-fit <- fitModel(10,10,batch.dat,n.surr = 5)
+fit <- fitModel(10,10,hidden_fac.dat,n.surr = 5)
 print(fit)
 
 }
 
+\keyword{models}
 \keyword{classes}
 \keyword{print}
 \keyword{methods}
