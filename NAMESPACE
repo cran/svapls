@@ -3,4 +3,3 @@ import(pls)
 exportClasses(fitModel, svpls)
 exportMethods(print, summary)
 export(fitModel, svpls, hfp)
-

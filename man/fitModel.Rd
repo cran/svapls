@@ -52,8 +52,8 @@ fitModel(k1, k2, Y, n.surr)
 
 \references{
 Sutirtha Chakraborty, Somnath Datta and Susmita Datta. (2012) 
-Surrogate Variable Analysis Using Partial Least Squares (SVA-PLS) in Gene Expression Studies. Bioinformatics, 28(6): 799-806.
-
+Surrogate Variable Analysis Using Partial Least Squares in Gene 
+Expression Studies. Bioinformatics.
 Martens, H., Naes, T. (1989) Multivariate Calibration. Chicestor:Wiley.
 }
 

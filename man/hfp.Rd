@@ -37,7 +37,8 @@ factors in the gene expression data.
 }
 \references{
 Sutirtha Chakraborty, Somnath Datta and Susmita Datta. (2012) 
-Surrogate Variable Analysis Using Partial Least Squares (SVA-PLS) in Gene Expression Studies. Bioinformatics, 28(6): 799-806.
+Surrogate Variable Analysis Using Partial Least Squares in Gene 
+Expression Studies. Bioinformatics.
 }
 \author{
 Sutirtha Chakraborty, Somnath Datta and Susmita Datta.
@@ -51,12 +52,11 @@ Sutirtha Chakraborty, Somnath Datta and Susmita Datta.
 data(hidden_fac.dat)
 fit <- svpls(10,10,hidden_fac.dat,pmax = 5)
 
-## Specifying the set of genes and subjects
-genes <- c(1,20,55,70,100,150,250,450)
-subjects <- c(1,4,7,10,11,15,17,20)
+## Specifying the sets of genes and subjects
+gen <- paste("g",c(1:15,50:65),sep="")
+sub <- paste("S",c(1:5,11:17),sep="")
 
-hfp(fit,genes,subjects,hidden_fac.dat)
-
+hfp(fit,gen,sub,hidden_fac.dat)
 }
 
 \keyword{print}

@@ -16,8 +16,8 @@ in a gene expression data.
 \tabular{ll}{
 Package: \tab svapls\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2013-03-12\cr
+Version: \tab 1.2\cr
+Date: \tab 2013-06-25\cr
 License: \tab GPL-3\cr
 }
 The package can be used to find the genes that are truly differentially expressed
@@ -38,7 +38,9 @@ Sutirtha Chakraborty, Somnath Datta and Susmita Datta.
 Maintainer: Sutirtha Chakraborty <statistuta@gmail.com>
 }
 \references{
-Sutirtha Chakraborty, Somnath Datta and Susmita Datta. (SVA-PLS) in Gene Expression Studies. Bioinformatics 28(6):799-806.
+Sutirtha Chakraborty, Somnath Datta and Susmita Datta. (2012) 
+Surrogate Variable Analysis Using Partial Least Squares in Gene 
+Expression Studies. Bioinformatics.
 }
 
 \keyword{models}
@@ -50,8 +52,8 @@ fit$genes
 Y.corrected <- fit$Y.corr
 
 data(hidden_fac.dat)
-gen <- c(1:15,50:65)
-sub <- c(1:5,11:17)
+gen <- paste("g",c(1:15,50:65),sep="")
+sub <- paste("S",c(1:5,11:17),sep="")
 
 hfp(fit,gen,sub,hidden_fac.dat)
 }

@@ -52,12 +52,11 @@ with effects estimated from the optimal model.}
   \item{AIC.opt}{AIC value for the optimal model.}
 }
 \references{
-Hirotsugu, A. (1980) Likelihood and the Bayes Procedure. Bayesian Statistics, 143-146.
-
-Benjamini, Y and Hochberg, Y (1995) Controlling
-the false discovery rate : a practical and powerful approach to multiple testing. Journal of the Royal Statistical Society, 57(1): 289-300. 
+Hirotsugu, A. (1980) Likelihood and the Bayes Procedure. The Institute of
+Statistical Mathematics, Tokyo., Benjamini, Y and Hochberg, Y (1995) Controlling
+the false discovery rate : a practical and powerful approach to multiple testing.
+Journal of the Royal Statistical Society. 
 }
-
 \author{
   Sutirtha Chakraborty, Somnath Datta and Susmita Datta.
 }
@@ -66,22 +65,24 @@ the false discovery rate : a practical and powerful approach to multiple testing
  \code{\link{fitModel}}, \code{\link{hfp}}
 }
 \examples{
-## Loading the dataset
+## Loading the first dataset
 data(hidden_fac.dat)
 
 ## Fitting the optimal ANCOVA model to the data gives:
 fit <- svpls(10,10,hidden_fac.dat,pmax = 5)
 
-## The optimal ANCOVA model, its AIC value and the positive genes detected from it are given by:
+## The optimal ANCOVA model, its AIC value and the positive genes detected from it are 
+## respectively given by
+
 fit$opt.model 
 
 fit$AIC.opt
 
 fit$genes
 
-## The corrected gene expression matrix obtained after removing the effects of the hidden variability is given by:
-Y.corrected <- fit$Y.corr
+## The corrected gene expression matrix is given by:
 
+Y.corrected <- fit$Y.corr
 }
 
 \keyword{classes}
