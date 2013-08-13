@@ -16,7 +16,7 @@ fitModel <- function (k1, k2, Y, n.surr){
         for (i in 1:G) {
             G.hat[i] <- mean(Y[i, ]) - mean(Y)
             V1.hat[i] <- mean(Y[, 1:k1]) - mean(Y)
-            GV1.hat[i] <- mean(Y[i,1:10]) - mean(Y[i,]) - mean(Y[,1:1:10]) + mean(Y)
+            GV1.hat[i] <- mean(Y[i,1:k1]) - mean(Y[i,]) - mean(Y[,1:k1]) + mean(Y)
         }
         mu.hat <- mean(Y)
         V2.hat <- -(k1/k2) * V1.hat

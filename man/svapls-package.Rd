@@ -16,8 +16,8 @@ in a gene expression data.
 \tabular{ll}{
 Package: \tab svapls\cr
 Type: \tab Package\cr
-Version: \tab 1.2\cr
-Date: \tab 2013-06-25\cr
+Version: \tab 1.3\cr
+Date: \tab 2013-08-13\cr
 License: \tab GPL-3\cr
 }
 The package can be used to find the genes that are truly differentially expressed
