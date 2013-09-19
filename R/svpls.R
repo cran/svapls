@@ -77,7 +77,7 @@ svpls <- function (k1, k2, Y, pmax = 3, fdr = 0.05){
         sig_genes.opt <- row.names(Y)[gene[index]]
     }
     Y.corr <- Y - PLS.imp
-    res <- list(opt.model = opt_model, PLS.imp = PLS.imp, Y.corr, 
+    res <- list(opt.model = opt_model, PLS.imp = PLS.imp, Y.corr = Y.corr, 
         pvalues.adj = pval.opt, genes = sig_genes.opt, AIC.opt = aic.opt)
     class(res) <- c("svpls", "list", "vector")
     return(res)

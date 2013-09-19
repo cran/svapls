@@ -1,4 +1,5 @@
 importFrom(stats, heatmap)
+import(class)
 import(pls)
 exportClasses(fitModel, svpls)
 exportMethods(print, summary)

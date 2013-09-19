@@ -78,8 +78,8 @@ fit$AIC.opt
 
 fit$genes
 
-## The corrected gene expression matrix obtained after removing the effects of the hidden 
-## variability is given by:
+## The corrected gene expression matrix obtained after removing the effects of
+## the hidden variability is given by:
 
 Y.corrected <- fit$Y.corr
 }
